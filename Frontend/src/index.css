@@ -1,0 +1,158 @@
+
+
+:root {
+	font-family: 'Inter', sans-serif;
+	line-height: 1.5;
+	font-weight: 500;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	color: black;
+	font-weight: 500;
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 300ms ease-in-out;
+}
+
+a:hover {
+	color: #3E3B3B;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+}
+
+.gradient-background {
+	background: #77A1D3;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #E684AE, #79CBCA, #77A1D3);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #E684AE, #79CBCA, #77A1D3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	width: 100%;
+	height: 100%;
+	z-index: -999;
+	position: fixed;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+.white-overlay {
+	background-color: transparent;
+	width: 100%;
+	height: 100%;
+	z-index: -998;
+	position: fixed;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+h1 {
+	font-family: "Josefin Sans", sans-serif;
+	font-size: 5rem;
+	font-weight: 400;
+	line-height: 1.1;
+	margin: 0;
+}
+
+h2 {
+	font-size: 3em;
+	line-height: 1.1;
+	margin: 0;
+	font-family: "Josefin Sans", sans-serif;
+}
+
+h3 {
+	margin: 0;
+}
+p {
+	margin: 0;
+	font-family: "Raleway", sans-serif;
+}
+
+ul {
+	list-style: none;
+   }
+button {
+	color: #fff;
+	background-color: #EE2761;
+	border-radius: 8px;
+	padding: 0.6rem 1.25rem;
+	font-size: 1em;
+	font-weight: 500;
+	border: 1px solid #EE2761;
+	cursor: pointer;
+	transition: all 300ms;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+	box-shadow: 10px 5px 8px rgba(172, 69, 141, 0.65);
+	font-family: "Raleway", sans-serif;
+}
+
+button:hover {
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+	border: 1px solid #7d6f78;
+	background-color: black;
+	color: white;
+}
+
+button:focus,
+button:focus-visible {
+	outline: none;
+}
+
+input,
+select {
+	border-radius: 8px;
+	border: 1px solid grey;
+	padding: 0.6rem 1.25rem;
+	font-size: 1em;
+	font-weight: 500;
+	font-family: inherit;
+	transition: all 300ms ease;
+}
+
+input:focus,
+select:focus {
+	outline: none;
+	border: 1px solid black;
+}
+
+.card {
+	color: black;
+	background-color: rgba(255, 255, 255, 0.5);
+	backdrop-filter: blur(64px);
+	display: grid;
+	place-items: center;
+	margin-bottom: 4rem;
+	min-height: 30vh;
+	max-height: 80vh;
+	border-radius: 30px;
+	border: none;
+	z-index: 2;
+	padding: 3%;
+	text-align: center; /* Center-align text inside the card */
+  }
+
+@media only screen and (max-width: 768px) {
+	html {
+		height: -webkit-fill-available;
+	}
+
+	.white-overlay {
+		background-color: hsla(0, 0%, 100%, 0.5);
+		width: 100%;
+		height: 100%;
+		z-index: -998;
+		position: fixed;
+		padding: 0;
+		margin: 0;
+		overflow: hidden;
+	}
+}

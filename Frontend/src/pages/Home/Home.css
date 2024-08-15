@@ -1,0 +1,206 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.nav-row{
+  width:100%;
+  height: 64px;
+  background: linear-gradient(to right, #E684AE, #79CBCA, #77A1D3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.spline-background {
+  position: absolute;
+  top: -0;
+  left: 0;
+  width: 100%;
+  height: 2420px;
+  z-index: 1; /* Ensures it is the frontmost layer */
+}
+
+.spline-background > canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  position: relative;
+  z-index: 2; /* Ensure it is behind the Spline scene */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.content-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  padding: 20px;
+  height: auto;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.text-container {
+  flex: 1;
+  padding: 20px;
+}
+
+.spline-container {
+  flex: 1;
+  padding: 20px;
+  height: 600px; /* Ensure the height is consistent */
+  padding-left: 10%;
+}
+
+.spline-container > canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.home-card {
+  width: 80%;
+}
+
+.card p {
+  padding-bottom: 3%;
+}
+
+.text-container p {
+  padding-bottom: 3%;
+}
+
+.card-section-text {
+  width: 40%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-section {
+  position: relative;
+  width: 100%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-content {
+  width: 80%;
+  color: black;
+  backdrop-filter: blur(64px);
+  display: flex; /* Use flexbox for layout */
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+  min-height: 30vh;
+  max-height: 80vh;
+  border-radius: 30px;
+  border: none;
+  z-index: 2;
+  padding: 3%;
+  text-align: center; /* Center-align text inside the card */
+}
+
+.image-section {
+  position: relative;
+  width: 100%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-content-text {
+  flex: 1;
+  padding: 20px;
+}
+
+.image-body {
+  flex: 1;
+  padding: 20px;
+}
+
+.image-body img {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease; /* Add transition for smooth effect */
+}
+
+.image-content:hover .image-content-text{ 
+  transform: rotateX(6deg) rotateY(10deg);
+  box-shadow: 10px 5px 8px rgba(172, 69, 141, 0.65);
+  transition: all 300ms ease-in-out;
+}
+
+.image-content:hover .image-body img{ 
+  transform: rotateX(6deg) rotateY(10deg);
+  box-shadow: 10px 5px 8px rgba(172, 69, 141, 0.65);
+  transition: all 300ms ease-in-out;
+}
+
+.footer-section{
+  width:100%;
+  height:auto;
+  padding:3% 10%;
+  background-color: rgba(255, 255, 255, 0.7);
+  position: relative;
+  border-radius: 30px;
+}
+
+@media (max-width: 768px) {
+  .image-content {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+  }
+
+  .image-content-text {
+    width: 100%; /* Ensure full width for each item */
+  }
+
+  .image-body {
+    width: 100%; /* Ensure full width for each item */
+  }
+}
+
+@media (max-width: 768px) {
+  .content-row {
+      flex-direction: column; /* Stack items vertically on smaller screens */
+      width: 100%; /* Ensure full width on smaller screens */
+  }
+
+  .text-container, .spline-container {
+      width: 100%; /* Ensure full width for each item */
+      padding: 10px; /* Adjust padding for smaller screens */
+  }
+
+  .spline-container {
+      height: 600px; /* Ensure the height is consistent */
+      padding-left: 0%;
+  }
+
+  .card-section-text{
+    width:70%;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-container {
+      padding: 5px; /* Further adjust padding for very small screens */
+  }
+
+  .spline-container {
+      height: 600px; /* Further adjust height for very small screens */
+      padding-left: 0%;
+  }
+
+  .card-section-text{
+    width:100%;
+  }
+}

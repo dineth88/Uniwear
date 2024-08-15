@@ -1,0 +1,19 @@
+.nav-wrapper{
+     height:100px;
+     width: 100%;
+     background-color: rgba(255, 255, 255, 0.7);
+     padding: 0 10% 0 10%;
+     z-index: 2;
+     border-radius:30px;
+}
+
+.right a{
+     color: #000;
+}
+
+.login-btn{
+     position: relative;
+     top:12px;
+}
+
+
