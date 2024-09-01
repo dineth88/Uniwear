@@ -1,8 +1,12 @@
 import Spline from '@splinetool/react-spline';
+import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import './Home.css'; // Make sure to import your CSS file
 import '../../index.css';
 import Img1 from '../../assets/348428189_988640645839983_6693744623780082422_n.jpg';
 import Img2 from '../../assets/409036064_975637517253383_3930589684187972943_n.jpg';
+import Img3 from '../../assets/417399656_894368372689197_4906686469146823110_n.jpg';
 import logo from '../../../src/assets/uniwear-high-resolution-logo-transparent.png';
 
 export default function Home() {
@@ -20,7 +24,7 @@ export default function Home() {
             <a href="./discover"><button>Discover</button></a>
           </div>
           <div className='spline-container'>
-            <Spline scene="https://prod.spline.design/CKRSaAhKKxpINP-U/scene.splinecode" />
+          <Spline scene="https://prod.spline.design/CKRSaAhKKxpINP-U/scene.splinecode" />
           </div>
         </div>
       </div>
@@ -57,10 +61,51 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="footer-section">
-        <img src={logo} alt="Logo" style={{ width: '150px', height: '30px' }}/>
-        <p> Where fashion meets academic pride.<br/>Embrace your identity with <br/>UniWear's unique designs.</p>
+      <div className="image-section">
+        <div className="image-content">
+          <div className="image-content-text">
+            <h2>Evolution of Sri Lanka's Academic Legacy</h2>
+            <p>Embark on a journey with UniWear, where each T-shirt tells the unique story of Sri Lanka's educational heritage. Our collection proudly represents iconic symbols, emblems, and mottos from esteemed governmental universities
+               across the nation, capturing the essence of academic excellence and unity.</p>
+          </div>
+          <div className="image-body">
+            <img src = {Img3} width={"70%"}/>
+          </div>
+        </div>
       </div>
+      <footer className="footer">
+        <div className="footer-content">
+          <div className="footer-column-section">
+            <img src={logo} alt="Logo" style={{ width: '150px', height: '30px' }}/>
+            <p> Where fashion meets academic pride.<br/>Embrace your identity with <br/>UniWear's unique designs.</p>
+          </div>
+          <div className="footer-nav">
+            <ul className="footer-nav-selection">
+              <li><NavLink to="UniWear/">Home</NavLink></li>
+              <li><NavLink to="UniWear/discover">Discover</NavLink></li>
+              <li><NavLink to="UniWear/sell">Sell</NavLink></li>
+              <li><NavLink to="UniWear/about">About</NavLink></li>
+            </ul>
+          </div>
+          <div className="footer-last-column">
+            <p>Follow UniWear</p>
+              <div className="social-icons">
+                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faFacebook} size="2x" />
+                </a>
+                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faInstagram} size="2x" />
+                </a>
+                <a href="https://www.whatsapp.com" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faWhatsapp} size="2x" />
+                </a>
+              </div>
+            </div>
+          </div>  
+        <div className="footer-bottom">
+          <p>Copyright©. All Rights Reserved.</p>
+        </div>
+      </footer>
     </>
   );
 }

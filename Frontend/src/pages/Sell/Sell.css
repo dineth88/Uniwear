@@ -1,0 +1,139 @@
+.imgBestSeller {
+      border-radius: 60%;
+      width: 7%;
+      height: 7%;
+      margin-left: 20px;
+      margin-right: 20px;
+  }
+  
+  .txtmargin {
+      margin: 20px;
+  }
+  
+  .img-div {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+  }
+  
+  .addItem-div {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      width: 100%;
+      height: auto;
+      padding-top: 5%;
+  }
+  
+  .addItem-card {
+      width: 50%;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-sizing: border-box;
+  }
+  
+  @media (max-width: 768px) {
+      .addItem-card {
+          width: 80%;
+          padding: 10px;
+      }
+  }
+  
+  .txtlabel {
+      color: black;
+      text-align: left;
+  }
+  
+  .form-addItem {
+      text-align: left;
+      position: relative;
+      top: 10%;
+      font-family: "Raleway", sans-serif;
+  }
+  
+  .form-control {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+  }
+  
+  .tname-form-control {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+  }
+  
+  .addremove-div {
+      height: 25vh;
+      padding: 0 10%;
+  }
+  
+  .name-fields {
+      display: flex;
+      flex-wrap: wrap; /* Ensures fields wrap on smaller screens */
+      gap: 10px; /* Adjust spacing between fields */
+  }
+  
+  .first-name, .last-name {
+      width: 48%;
+  }
+  
+  .first-feature, .last-feature {
+      width: 38%;
+  }
+  
+  .features-fields {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap; /* Ensures fields wrap on smaller screens */
+      gap: 10px;
+  }
+  
+  .img-add-div {
+      height: auto;
+      padding: 0 10%;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap; /* Ensures fields wrap on smaller screens */
+      gap: 10px;
+  }
+  
+  .first-img, .second-img, .third-img {
+      width: 150px;
+      height: 150px;
+      background-color: antiquewhite;
+      display: flex; /* Use flex to center the icon */
+      align-items: center; /* Center vertically */
+      justify-content: center; /* Center horizontally */
+  }
+  
+  .first-img .fa-image, .second-img .fa-image, .third-img .fa-image {
+      font-size: 60px; /* Set icon size */
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+  }
+  
+  .selected-image {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+  }
+  
+  .btn-div {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      width: 100%;
+      padding-top: 5%;
+  }
+  

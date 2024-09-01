@@ -108,7 +108,7 @@ button:focus-visible {
 }
 
 input,
-select {
+select, option {
 	border-radius: 8px;
 	border: 1px solid grey;
 	padding: 0.6rem 1.25rem;
@@ -132,7 +132,6 @@ select:focus {
 	place-items: center;
 	margin-bottom: 4rem;
 	min-height: 30vh;
-	max-height: 80vh;
 	border-radius: 30px;
 	border: none;
 	z-index: 2;
