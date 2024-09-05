@@ -1,0 +1,67 @@
+.slider-container {
+    padding: 10%;
+}
+
+.slider-container div {
+    height: 20vh;
+}
+
+.product-cat {
+    position: relative;
+    width: 80%;
+    height: 80vh;
+    background-color: transparent; /* Set to transparent to show polygons */
+    margin-left: 10%;
+}
+
+.product-cat .rhombus {
+    position: absolute;
+    width: 400px; /* Set width for each rhombus */
+    height: 700px; /* Height is 5 times the width */
+    background-color: transparent; /* To use background color on each rhombus */
+    transform: rotate(45deg); /* Rotate to form a rhombus */
+}
+
+.product-cat .left-rhombus {
+    background-color: #ff0000; /* Set your desired color */
+    left: 10%;
+    top: 50%;
+    transform: rotate(25deg) translate(-50%, -50%);
+}
+
+.product-cat .center-rhombus {
+    background-color: #00ff00; /* Set your desired color */
+    left: 40%;
+    top: 50%;
+    transform: rotate(25deg) translate(-50%, -50%);
+}
+
+.product-cat .right-rhombus {
+    background-color: #0000ff; /* Set your desired color */
+    left: 46%;
+    top: 30%;
+    transform: rotate(25deg) translate(50%, -50%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .slider-container div {
+        height: 15vh;
+    }
+    
+    
+}
+
+@media (max-width: 768px) {
+    .slider-container div {
+        height: 10vh;
+    }
+    
+   
+}
+
+@media (max-width: 480px) {
+    .slider-container div {
+        height: 5vh;
+    }
+}
