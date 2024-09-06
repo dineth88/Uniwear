@@ -22,4 +22,8 @@ public class UserService {
 	public String getId(String email) {
 		return repo.getId(email);
 	}
+	
+	public String getUni(int id) {
+		return repo.getUni(id);
+	}
 }

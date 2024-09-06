@@ -35,7 +35,7 @@ function App() {
         )}
         <Routes>
           <Route path='/UniWear/' element={<Home setShowNav={setShowNav} />} />
-          <Route path='/UniWear/discover' element={<Discover setShowNav={setShowNav} />} />
+          <Route path='/UniWear/discover' element={<Discover setShowNav={setShowNav} userId={userId}/>} />
           <Route path='/UniWear/sell' element={<Sell setShowNav={setShowNav} userId={userId} />} /> {/* Pass userId */}
           <Route path='/UniWear/about' element={<About setShowNav={setShowNav} />} />
           <Route path='/UniWear/login' element={<Login setShowNav={setShowNav} setIsLoggedIn={setIsLoggedIn} setUserId={setUserId} />} /> {/* Pass setUserId */}

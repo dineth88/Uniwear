@@ -10,114 +10,135 @@
     position: relative;
     width: 80%;
     height: 80vh;
-    background-color: transparent; /* Set to transparent to show polygons */
+    background-color: transparent; 
     margin-left: 10%;
-    background-color: #00ff00;
+
 }
 
 .product-cat .rhombus {
     position: absolute;
-    width: 27%; /* Set width for each rhombus */
+    width: 27%;
     height: 80%; 
-    background-color: transparent; /* To use background color on each rhombus */
-    transform: rotate(45deg); /* Rotate to form a rhombus */
-    overflow:hidden;
-    border-radius:100px 0px 100px 0px;
+    background-color: transparent;
+    transform: rotate(45deg);
+    border-radius: 100px 0px 100px 0px;
+    overflow: hidden;
 }
 
+.product-cat .rhombus img {
+    width: 170%;
+    height: 120%;
+    display: block;
+    margin: auto;
+    position: relative;
+    transition: transform 2s ease;
+    transform: rotate(25deg) translate(-50%, -50%);
+}
+
+/* Common styles for image overlays */
+.product-cat .rhombus .image-overlay {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-100%) rotate(-25deg); /* Start off the screen, rotated */
+    transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(2, 2, 2, 0.5); /* Semi-transparent overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-cat .rhombus:hover .image-overlay {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0) /* Slide and rotate into place */
+}
+
+.product-cat .rhombus .image-overlay h2 {
+    font-size: 2rem;
+    color: #ffffff; /* Text color */
+    transform:  rotate(-25deg);
+}
+
+
 .product-cat .left-rhombus {
-    background-color: #ff0000; /* Set your desired color */
+    background-color: #ff0000;
     left: 12%;
     top: 50%;
     transform: rotate(25deg) translate(-50%, -50%);
 }
 
 .product-cat .center-rhombus {
-    background-color: #00ff00; /* Set your desired color */
+    background-color: #00ff00;
     left: 40%;
     top: 50%;
     transform: rotate(25deg) translate(-50%, -50%);
-    
 }
 
 .product-cat .right-rhombus {
-    background-color: #0000ff; /* Set your desired color */
+    background-color: #0000ff;
     left: 43%;
     top: 30%;
     transform: rotate(25deg) translate(50%, -50%);
-    
 }
-
-.product-cat .rhombus img {
-    transform: rotate(-25deg); /* Rotate the image by -25 degrees */
-    width: 170%; /* Maintain the width you specified */
-    display: block;
-    margin: auto; /* Ensure the image is centered */
-    height: 120%;
-    position: relative;
-    
-}
-
-.product-cat .rhombus img {
-    /* Transition to smoothly move the image when it's loaded */
-    transition: transform 2s ease;
-  }
-
-  .rhombus-image-cover{}
 
 .button-container button {
-
     visibility: hidden;
 }
 
+.info-container {
+    width: 100%;
+    padding: 10%;
+    background-color: #f0f0f0;
+    text-align: center;
+}
 
-/* Responsive adjustments */
+.info-content h2 {
+    font-size: 2rem;
+    color: #333;
+}
+
 @media (max-width: 1200px) {
-    .slider-container div {
-        height: 15vh;
-    }
-
-    .product-cat .rhombus img {
-        width: 200%; /* Maintain the width you specified */
-        height: 120%;
-    }
-
     .product-cat .rhombus {
-        width: 27%; /* Set width for each rhombus */
+        width: 27%;
         height: 70%; 
     }
 
     .product-cat .right-rhombus {
         top: 40%;
-        left:38%;
+        left: 38%;
     }
 
     .product-cat .left-rhombus {
         left: 8%;
     }
-    
+
     .product-cat .center-rhombus {
         left: 36%;
+    }
+
+    .product-cat .rhombus img {
+        width: 210%;
     }
 }
 
 @media (max-width: 768px) {
-    .slider-container div {
-        height: 10vh;
-    }
-
     .product-cat {
         height: 30vh;
     }
-    
+
     .product-cat .rhombus {
-        width: 25%; /* Set width for each rhombus */
+        width: 25%;
         height: 50%; 
     }
 
     .product-cat .right-rhombus {
         top: 42%;
-        left:38%;
+        left: 38%;
     }
 
     .product-cat .left-rhombus {
@@ -143,12 +164,10 @@
         visibility: visible;
     }
 
-    .product-cat .rhombus{
+    .product-cat .rhombus {
         visibility: hidden;
     }
-
 }
-
 
 @media (max-width: 576px) {
     .slider-container div {

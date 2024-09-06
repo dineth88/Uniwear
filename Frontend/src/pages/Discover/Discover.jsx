@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState} from 'react';
 import './Discover.css';
 import '../../index.css';
 import Img1 from '../../assets/94ede2c9-1157-40cc-9865-5cc7bde23176.jpg';
@@ -8,6 +8,8 @@ import Img4 from '../../assets/lcy-triangle-letter-logo-design-with-triangle-sha
 import Img5 from '../../assets/images (1).png';
 import Img6 from '../../assets/images (2).png';
 import Img7 from '../../assets/457701025_938359281661701_1546429585640124063_n.jpg';
+import Img8 from '../../assets/457562456_1108589173960317_3777200935784246294_n.jpg';
+import Img9 from '../../assets/457445395_1107076667444901_2627603454977048025_n.jpg';
 import { useNavigate } from 'react-router-dom';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -16,7 +18,14 @@ import Slider from "react-slick";
 
 
 
-export default function Discover(){
+export default function Discover({ userId }){
+
+    const [selectedCategory, setSelectedCategory] = useState('');
+    const [infoText, setInfoText] = useState('');
+
+    const handleClick = (category) => {
+        setSelectedCategory(category);
+    };
 
     const handleImageLoad = (e) => {
         e.target.style.transform = "rotate(-25deg) translate(-15%, -15%)";
@@ -33,7 +42,14 @@ export default function Discover(){
         cssEase: "linear",
     }
     
-    
+    useEffect(() => {
+        if (selectedCategory && userId) {
+            fetch(`http://localhost:8080/user/uni/${userId}`)
+                .then(response => response.text())
+                .then(data => setInfoText(data))
+                .catch(error => console.error('Error fetching data:', error));
+        }
+    }, [selectedCategory, userId]);
 
     return(
         <>
@@ -60,35 +76,50 @@ export default function Discover(){
                     </div>
                 </Slider>
             </div>
-            <div class="product-cat">
-                <div class="rhombus left-rhombus">
+            <div className="product-cat">
+                <div className="rhombus left-rhombus" onClick={() => handleClick('Sport T-shirt list')}>
                     <img
                         src={Img7}
                         alt="Brand"
                         onLoad={handleImageLoad}
                     />
-                    <div className="rhombus-image-cover"></div>
+                    <div className="image-overlay">
+                        <h2>SPORT</h2>
+                    </div>
                 </div>
-                <div class="rhombus center-rhombus">
+                <div className="rhombus center-rhombus" onClick={() => handleClick('CASUAL T-shirt list')}>
                     <img
-                        src={Img6}
-                        alt="Brand"
-                        onLoad={handleImageLoad}
-                     />
-                </div>
-                <div class="rhombus right-rhombus">
-                    <img
-                        src={Img6}
+                        src={Img8}
                         alt="Brand"
                         onLoad={handleImageLoad}
                     />
+                    <div className="image-overlay">
+                        <h2>CASUAL</h2>
+                    </div>
+                </div>
+                <div className="rhombus right-rhombus"onClick={() => handleClick('CLUB T-shirt list')}>
+                    <img
+                        src={Img9}
+                        alt="Brand"
+                        onLoad={handleImageLoad}
+                    />
+                    <div className="image-overlay">
+                        <h2>CLUB</h2>
+                    </div>
                 </div>
                 <div className="button-container">
-                <button>Sport</button>
-                <button>Sport</button>
-                <button>Sport</button>
+                    <button>Sport</button>
+                    <button>Sport</button>
+                    <button>Sport</button>
+                </div>
             </div>
-            </div>
+            {selectedCategory?
+            <div className="info-container">
+                <div className="info-content">
+                    <h2>{selectedCategory}</h2>
+                    <h2>{infoText}</h2>
+                </div>
+            </div>:""}
         </>
     );
 }
