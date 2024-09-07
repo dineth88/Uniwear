@@ -11,6 +11,7 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -32,4 +33,53 @@
 
 .read-the-docs {
   color: #888;
+}
+
+@keyframes fly {
+  100% {
+    transform:rotate(1turn) translate(100px) rotate(-1turn);
+  }
+}
+
+@keyframes flyPlus {
+  100% {
+    transform:rotate(-1turn) translate(100px) rotate(1turn);
+  }
+}
+
+.base {
+  position: absolute;
+  filter: blur(60px);
+  opacity: 0.8;
+}
+
+.one {
+  border-radius: 100%;
+  width: 600px;
+  height: 600px;
+  background-color: #373372;
+  left:350px;
+  top:-300px;
+  z-index: 3;
+  animation: fly 12s linear infinite;
+  transform:rotate(0) translate(80px) rotate(0);
+}
+
+.two {
+  width: 500px;
+  height: 800px;
+  background-color: #7C336C;
+  bottom:-30px;
+  left:-80px;
+}
+
+.three {
+  border-radius: 100%;
+  width: 450px;
+  height: 450px;
+  bottom:-80px;
+  right:-100px;
+  background-color: #B3588A;
+  animation: flyPlus 8s linear infinite;
+  transform:rotate(0) translate(100px) rotate(0);
 }

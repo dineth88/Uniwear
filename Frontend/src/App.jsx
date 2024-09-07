@@ -23,10 +23,18 @@ function App() {
     setUserId(null); // Clear the user ID on logout
   };
 
+  
+
   return (
     <>
       <BrowserRouter>
-        <div className='gradient-background'></div>
+        <div className='gradient-background'>
+        <div class="base one"></div>
+    <div class="base two"></div>
+    <div class="base three"></div>
+        </div>
+
+
         <div className='white-overlay'></div>
         {showNav && (
           <header>
