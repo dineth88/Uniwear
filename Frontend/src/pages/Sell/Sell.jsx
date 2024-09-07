@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Img1 from '../../assets/348428189_988640645839983_6693744623780082422_n.jpg';
 import './Sell.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage } from '@fortawesome/free-solid-svg-icons';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+
 
 export default function Sell({ userId }) { // Receive userId as a prop
     const [images, setImages] = useState([null, null, null]);
@@ -17,6 +20,9 @@ export default function Sell({ userId }) { // Receive userId as a prop
     const [material, setMaterial] = useState('');
     const [manufacturer, setManufacturer] = useState('');
     const [message, setMessage] = useState('');
+    const [university, setUniversity] = useState('');
+    const [category, setCategory] = useState('');
+    
 
     const handleImageChange = (e, index) => {
         const file = e.target.files[0];
@@ -35,7 +41,7 @@ export default function Sell({ userId }) { // Receive userId as a prop
         e.preventDefault();
 
         // Form validation
-        if (!tshirtName || !shortDesc || !itemDesc || !price || !colar || !cuff || !placket || !pLength || !material || !manufacturer || !images[0] || !images[1] || !images[2]) {
+        if (!tshirtName || !shortDesc || !itemDesc || !price || !colar || !cuff || !placket || !pLength || !material || !manufacturer || !university || !category|| !images[0] || !images[1] || !images[2]) {
             setMessage('Please fill in all fields and add all images.');
             return;
         }
@@ -52,11 +58,15 @@ export default function Sell({ userId }) { // Receive userId as a prop
             pLength,
             material,
             manufacturer,
+            university,
+            category,
             image1: images[0],
             image2: images[1],
             image3: images[2],
             user_id: userId
         };
+
+        
 
         // Send the form data to the server
         try {
@@ -78,6 +88,27 @@ export default function Sell({ userId }) { // Receive userId as a prop
             setMessage('An error occurred. Please try again later.');
         }
     };
+
+    const uniOptions = [
+        { value: 'UOV', label: 'University of Vavuniya' },
+        { value: 'UOP', label: 'University of Peradeniya' },
+        { value: 'UOC', label: 'University of Colombo' },
+        { value: 'UOJ', label: 'University of Jaffna' },
+        { value: 'UOR', label: 'University of Ruhuna' },
+        { value: 'UOK', label: 'University of Kelaniya' },
+        { value: 'UOM', label: 'University of Moratuwa' },
+        { value: 'USJ', label: 'University of Sri Jayawardenepura' },
+        { value: 'RUSL', label: 'Rajarata University of Sri Lanka' },
+        { value: 'EUSL', label: 'Eastern University of Sri Lanka' }
+    ];
+
+    const catOptions = [
+        { value: 'Sport', label: 'Sport' },
+        { value: 'Casual', label: 'Casual' },
+        { value: 'Club', label: 'Club' },
+    ];
+
+    
 
     return (
         <>
@@ -109,6 +140,22 @@ export default function Sell({ userId }) { // Receive userId as a prop
                         </div>
                         <label htmlFor="ides" className='txtlabel'>Item Description</label> 
                         <textarea name="txtdes" id="txtdes" cols="30" rows="10" value={itemDesc} onChange={(e) => setItemDesc(e.target.value)}></textarea>
+                        <label htmlFor="university" className="email">University</label>
+                        <Dropdown
+                            options={uniOptions}
+                            onChange={(option) => setUniversity(option.value)}
+                            value={uniOptions.find(option => option.value === university)} // Make sure this correctly finds the selected value
+                            placeholder="Select an option"
+                            className="form-control"
+                        />
+                        <label htmlFor="category" className="email">Category</label>
+                        <Dropdown
+                            options={catOptions}
+                            onChange={(option) => setCategory(option.value)}
+                            value={catOptions.find(option => option.value === category)} // Make sure this correctly finds the selected value
+                            placeholder="Select an option"
+                            className="form-control"
+                        />
                         <label htmlFor="sdes" className='txtlabel'>Price</label> 
                         <input type="text" className='sdes-form-control' value={price} onChange={(e) => setPrice(e.target.value)} />
                         <label htmlFor="ides" className='txtlabel'>Add Features</label>

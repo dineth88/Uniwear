@@ -6,6 +6,11 @@
     height: 20vh;
 }
 
+.slider-container h2{
+    position: relative;
+    top:-10vh;
+}
+
 .product-cat {
     position: relative;
     width: 80%;
@@ -26,13 +31,17 @@
 }
 
 .product-cat .rhombus img {
-    width: 170%;
+    width: 190%;
     height: 120%;
     display: block;
     margin: auto;
     position: relative;
     transition: transform 2s ease;
     transform: rotate(25deg) translate(-50%, -50%);
+}
+
+.product-cat .center-rhombus img{
+    left:-10%;
 }
 
 /* Common styles for image overlays */
@@ -46,10 +55,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(2, 2, 2, 0.5); /* Semi-transparent overlay */
+    background-color: #f0f0f0;
+    backdrop-filter: 5;
     display: flex;
     justify-content: center;
     align-items: center;
+    backdrop-filter: invert(80%);
+    border-radius: 0px 0px 100px 0px;
 }
 
 .product-cat .rhombus:hover .image-overlay {
@@ -60,27 +72,24 @@
 
 .product-cat .rhombus .image-overlay h2 {
     font-size: 2rem;
-    color: #ffffff; /* Text color */
+    color: #000000; /* Text color */
     transform:  rotate(-25deg);
 }
 
 
 .product-cat .left-rhombus {
-    background-color: #ff0000;
     left: 12%;
     top: 50%;
     transform: rotate(25deg) translate(-50%, -50%);
 }
 
 .product-cat .center-rhombus {
-    background-color: #00ff00;
     left: 40%;
     top: 50%;
     transform: rotate(25deg) translate(-50%, -50%);
 }
 
 .product-cat .right-rhombus {
-    background-color: #0000ff;
     left: 43%;
     top: 30%;
     transform: rotate(25deg) translate(50%, -50%);
@@ -122,7 +131,8 @@
     }
 
     .product-cat .rhombus img {
-        width: 210%;
+        width: 220%;
+        left:-15%;
     }
 }
 

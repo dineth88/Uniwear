@@ -54,25 +54,25 @@ export default function Discover({ userId }){
     return(
         <>
             <div className="slider-container">
-                    <h1 text align="center">Our Best Brands</h1>
+                    <h2 text align="center">Our Best Brands</h2>
                 <Slider {...settings}>
                     <div>
-                        <img src = {Img1} width={"30%"}/>
+                        <img src = {Img1} width={"20%"}/>
                     </div>
                     <div>
-                        <img src = {Img2} width={"30%"}/>
+                        <img src = {Img2} width={"20%"}/>
                     </div>
                     <div>
-                        <img src = {Img3} width={"30%"}/>
+                        <img src = {Img3} width={"20%"}/>
                     </div>
                     <div>
-                        <img src = {Img4} width={"30%"}/>
+                        <img src = {Img4} width={"20%"}/>
                     </div>
                     <div>
-                        <img src = {Img5} width={"30%"}/>
+                        <img src = {Img5} width={"20%"}/>
                     </div>
                     <div>
-                        <img src = {Img6} width={"30%"}/>
+                        <img src = {Img6} width={"20%"}/>
                     </div>
                 </Slider>
             </div>
