@@ -12,6 +12,7 @@ import PageNotFound from './pages/PageNotFound/PageNotFound';
 import SignUp from './pages/SignUp/SignUp';
 import Cart from './global/components/Cart/Cart';
 import './App.css';
+import Spline from '@splinetool/react-spline';
 
 function App() {
   const [showNav, setShowNav] = useState(true);
@@ -29,9 +30,7 @@ function App() {
     <>
       <BrowserRouter>
         <div className='gradient-background'>
-        <div class="base one"></div>
-    <div class="base two"></div>
-    <div class="base three"></div>
+        <Spline scene="https://prod.spline.design/D3pmTHIrKWO8QCIc/scene.splinecode" />
         </div>
 
 
