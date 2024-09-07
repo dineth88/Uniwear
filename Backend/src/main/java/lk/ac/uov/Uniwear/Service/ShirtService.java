@@ -1,5 +1,7 @@
 package lk.ac.uov.Uniwear.Service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,4 +17,8 @@ public class ShirtService {
 	public void addShirt(Shirt shirt) {
         repo.save(shirt);
     }
+	
+	public List<Shirt> getShirtDetails(String university, String category){
+		return repo.getShirtDetails(university, category);
+	}
 }

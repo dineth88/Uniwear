@@ -26,4 +26,8 @@ public class UserService {
 	public String getUni(int id) {
 		return repo.getUni(id);
 	}
+	
+	public User getUser(int id) {
+		return repo.getUser(id);
+	}
 }

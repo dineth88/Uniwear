@@ -33,6 +33,10 @@ public class Shirt {
 	private String material;
 	@Column(nullable = false)
 	private String manufacturer;
+	@Column(nullable = false)
+	private String university;
+	@Column(nullable = false)
+	private String category;
 	@Lob
 	@Column(columnDefinition = "MEDIUMBLOB")
 	private String image1;
@@ -50,7 +54,7 @@ public class Shirt {
 	}
 
 	public Shirt(int shirtId, String name, String shortDesc, String itemDesc, String price, String colar, String cuff,
-			String placket, String pLength, String material, String manufacturer, String image1, String image2,
+			String placket, String pLength, String material, String manufacturer, String university, String category,String image1, String image2,
 			String image3, User user) {
 		this.shirtId = shirtId;
 		this.name = name;
@@ -63,6 +67,8 @@ public class Shirt {
 		this.pLength = pLength;
 		this.material = material;
 		this.manufacturer = manufacturer;
+		this.category = category;
+		this.university = university;
 		this.image1 = image1;
 		this.image2 = image2;
 		this.image3 = image3;
@@ -155,6 +161,22 @@ public class Shirt {
 
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
+	}
+	
+	public String getUniversity() {
+		return university;
+	}
+
+	public void setUniversity(String university) {
+		this.university = university;
+	}
+	
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public String getImage1() {

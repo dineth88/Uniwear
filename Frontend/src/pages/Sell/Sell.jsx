@@ -22,7 +22,31 @@ export default function Sell({ userId }) { // Receive userId as a prop
     const [message, setMessage] = useState('');
     const [university, setUniversity] = useState('');
     const [category, setCategory] = useState('');
+    const [shirtUser, setShirtUser] = useState(null); // State for storing user data
     
+        // Fetch user data based on userId
+        useEffect(() => {
+            const fetchUser = async () => {
+                try {
+                    const response = await fetch(`http://localhost:8080/user/find/${userId}`);
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    const text = await response.text();
+                    console.log('Raw response:', text);
+                    const user = JSON.parse(text);
+                    setShirtUser(user);
+                } catch (error) {
+                    console.error('An error occurred while fetching user:', error);
+                    setMessage('Failed to fetch user data.');
+                }
+            };
+        
+            if (userId) {
+                fetchUser();
+            }
+        }, [userId]);
+        
 
     const handleImageChange = (e, index) => {
         const file = e.target.files[0];
@@ -41,7 +65,7 @@ export default function Sell({ userId }) { // Receive userId as a prop
         e.preventDefault();
 
         // Form validation
-        if (!tshirtName || !shortDesc || !itemDesc || !price || !colar || !cuff || !placket || !pLength || !material || !manufacturer || !university || !category|| !images[0] || !images[1] || !images[2]) {
+        if (!tshirtName || !shortDesc || !itemDesc || !price || !colar || !cuff || !placket || !pLength || !material || !manufacturer || !university || !category || !images[0] || !images[1] || !images[2] || !shirtUser) {
             setMessage('Please fill in all fields and add all images.');
             return;
         }
@@ -63,7 +87,7 @@ export default function Sell({ userId }) { // Receive userId as a prop
             image1: images[0],
             image2: images[1],
             image3: images[2],
-            user_id: userId
+            user: shirtUser // Include the fetched user data
         };
 
         
@@ -108,8 +132,6 @@ export default function Sell({ userId }) { // Receive userId as a prop
         { value: 'Club', label: 'Club' },
     ];
 
-    
-
     return (
         <>
             <div className='txtmargin'>
@@ -149,6 +171,7 @@ export default function Sell({ userId }) { // Receive userId as a prop
                             className="form-control"
                         />
                         <label htmlFor="category" className="email">Category</label>
+                        
                         <Dropdown
                             options={catOptions}
                             onChange={(option) => setCategory(option.value)}
@@ -207,6 +230,7 @@ export default function Sell({ userId }) { // Receive userId as a prop
                     </form>
                 </div>
             </div>
+           
         </>
     );
 }

@@ -24,7 +24,8 @@ export default function Discover({ userId }){
     const [infoText, setInfoText] = useState('');
 
     const handleClick = (category) => {
-        setSelectedCategory(category);
+        const formattedCategory = category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
+        setSelectedCategory(formattedCategory);
     };
 
     const handleImageLoad = (e) => {
@@ -50,6 +51,15 @@ export default function Discover({ userId }){
                 .catch(error => console.error('Error fetching data:', error));
         }
     }, [selectedCategory, userId]);
+
+    useEffect(() => {
+        if (selectedCategory && infoText) {
+            fetch(`http://localhost:8080/shirt/find?university=${infoText}&category=${selectedCategory}`)
+                .then(response => response.text())
+                .then(data => setInfoText(data))
+                .catch(error => console.error('Error fetching data:', error));
+        }
+    }, [selectedCategory, infoText]);
 
     return(
         <>
@@ -77,7 +87,7 @@ export default function Discover({ userId }){
                 </Slider>
             </div>
             <div className="product-cat">
-                <div className="rhombus left-rhombus" onClick={() => handleClick('Sport T-shirt list')}>
+                <div className="rhombus left-rhombus" onClick={() => handleClick('sport')}>
                     <img
                         src={Img7}
                         alt="Brand"
@@ -87,7 +97,7 @@ export default function Discover({ userId }){
                         <h2>SPORT</h2>
                     </div>
                 </div>
-                <div className="rhombus center-rhombus" onClick={() => handleClick('CASUAL T-shirt list')}>
+                <div className="rhombus center-rhombus" onClick={() => handleClick('casual')}>
                     <img
                         src={Img8}
                         alt="Brand"
@@ -97,7 +107,7 @@ export default function Discover({ userId }){
                         <h2>CASUAL</h2>
                     </div>
                 </div>
-                <div className="rhombus right-rhombus"onClick={() => handleClick('CLUB T-shirt list')}>
+                <div className="rhombus right-rhombus"onClick={() => handleClick('club')}>
                     <img
                         src={Img9}
                         alt="Brand"

@@ -40,6 +40,12 @@ public class UserController {
     }
     
     @CrossOrigin(origins = {"http://localhost:5173", "http://localhost:5174", "http://localhost:3000"})
+    @GetMapping("find/{id}")
+    public ResponseEntity<User> getUser(@PathVariable("id") int id) {
+        return new ResponseEntity<User>(service.getUser(id), HttpStatus.OK);
+    }
+    
+    @CrossOrigin(origins = {"http://localhost:5173", "http://localhost:5174", "http://localhost:3000"})
     @PostMapping()
     public ResponseEntity<String> addUser(@RequestBody User user) {
         service.addUser(user);
