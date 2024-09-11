@@ -1,0 +1,42 @@
+trigger:
+- main
+
+variables:
+
+  # Azure Resource Manager connection created during pipeline creation
+  azureSubscription: '790a9e4c-f1a2-4f95-bf0e-8a4159987ebf'
+
+  # Web app name
+  webAppName: ''
+
+  # Environment name
+  environmentName: ''
+
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '20.x'
+      displayName: 'Install Node.js'
+
+    - script: |
+        npm install
+        npm run build --if-present
+        npm run test --if-present
+      displayName: 'npm install, build and test'
+
+    - task: Npm@1
+      inputs:
+        command: 'install'
+      displayName: 'Install npm dependencies'
